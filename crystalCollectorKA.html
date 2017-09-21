@@ -1,0 +1,66 @@
+<HTML>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+.crys {
+	height: 200px;
+	width: 200px;
+	padding: 10px;
+}
+h1 {
+	padding: 20px;
+	color: #fff;
+	text-align: center;
+	background-color: #000;
+}
+</style>
+</head>
+
+<body>
+<h1>Crystal Selector</h1>
+<br>
+<div id = crysList>
+
+<img class = crys src="assets/c1.png"></img>
+<img class = crys src="assets/ball.png"></img>
+<img class= crys src="assets/bernstein.jpg"></img>
+<img class= crys src="assets/diamond.png"></img>
+</div>
+
+<script>
+var guessedValue = 0;
+var targetValue = Math.floor((Math.random() * 120) + 19);
+var crystal
+var crysValue
+// var crysVal = Math.floor((Math.random() * 12) + 1);
+ for (i = 0; i<4; i++){
+ var crystal = $(".crys").each (function () {
+ 	console.log('I RUN!!')
+ 	 crysValue = Math.floor((Math.random() * 12) + 1);
+     $(crystal).attr("data-crys" , crysValue); 
+ });
+
+ }
+
+$(".crys").on("click", function game(){
+  guessedValue += +$(this).attr("data-crys");
+  
+  console.log(guessedValue);
+  console.log(targetValue);
+
+  if (guessedValue === targetValue) {
+  	console.log("You win!")
+    }
+  	else if (guessedValue < targetValue) {
+  		console.log("still playing")
+  	}
+
+  	else if ( guessedValue > targetValue){
+  		console.log("You lose!")
+  	}
+  }
+)
+</script>
+
+</body>
+</HTML>

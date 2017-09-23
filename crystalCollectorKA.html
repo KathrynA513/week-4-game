@@ -32,12 +32,12 @@ var guessedValue = 0;
 var targetValue = Math.floor((Math.random() * 120) + 19);
 var crystal
 var crysValue
-// var crysVal = Math.floor((Math.random() * 12) + 1);
+
  for (i = 0; i<4; i++){
  var crystal = $(".crys").each (function () {
- 	console.log('I RUN!!')
+ 	
  	 crysValue = Math.floor((Math.random() * 12) + 1);
-     $(crystal).attr("data-crys" , crysValue); 
+     $(this).attr("data-crys" , crysValue); 
  });
 
  }
@@ -45,18 +45,18 @@ var crysValue
 $(".crys").on("click", function game(){
   guessedValue += +$(this).attr("data-crys");
   
-  console.log(guessedValue);
-  console.log(targetValue);
+  alert("The total value of points guessed is: " + guessedValue);
+  alert("The amount of points you need is: " + targetValue);
 
   if (guessedValue === targetValue) {
-  	console.log("You win!")
+  	alert("You win!");
     }
   	else if (guessedValue < targetValue) {
-  		console.log("still playing")
+  		alert("Keep Guessing!");
   	}
 
   	else if ( guessedValue > targetValue){
-  		console.log("You lose!")
+  		alert("You lose!");
   	}
   }
 )
